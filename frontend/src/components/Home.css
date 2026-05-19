@@ -1,0 +1,131 @@
+:root {
+    --sidebar-bg: #4a90e2; /* Sky Blue */
+    --sidebar-active: rgba(255, 255, 255, 0.25);
+    --header-bg: #ffffff;
+    --content-bg: #f0f4f8;
+    --text-dark: #334155;
+    --text-white: #ffffff;
+}
+
+.home {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 55px auto 25px;
+    background: var(--content-bg);
+}
+
+.home-header {
+    background: var(--header-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.small-logo {
+    height: 35px; /* Smaller logo */
+    width: auto;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-name {
+    color: var(--text-dark);
+    font-size: 13.5px;
+    font-weight: 600;
+    background: #f1f5f9;
+    padding: 6px 18px;
+    border-radius: 18px;
+}
+
+.logout-btn {
+    width: 30px;
+    height: 30px;
+    background: #ef4444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.logout-btn:hover { background: #dc2626; }
+
+.logout-btn img {
+    width: 15px;
+    height: 15px;
+    filter: brightness(0) invert(1);
+}
+
+.home-workspace {
+    display: grid;
+    grid-template-columns: 220px 1fr; /* Suitable width */
+    overflow: hidden;
+}
+
+.home-menus {
+    background: var(--sidebar-bg);
+    padding: 5px 0; /* Minimal vertical padding */
+}
+
+.main-menus {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menus li {
+    padding: 10px 20px; /* Reduced vertical padding for "no gap" feel */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.main-menus li img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+.main-menus li.active {
+    background: var(--sidebar-active);
+    color: #ffffff;
+    box-shadow: inset 3px 0 0 #ffffff;
+}
+
+.main-menus li:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.home-workspace-content {
+    background: var(--content-bg);
+    overflow-y: auto;
+}
+
+.home-footer {
+    background: #ffffff;
+    color: #64748b;
+    font-size: 10.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #e2e8f0;
+}
