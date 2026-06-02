@@ -103,7 +103,7 @@ const TaskManager = ({ token }) => {
                         onChange={(e) => setQuickTaskName(e.target.value)}
                         onKeyDown={(e) => { if (e.key === 'Enter') handleQuickAdd(); }}
                     />
-                    <button className='btn-quick-add' onClick={handleQuickAdd}>Add Task</button>
+                    <button className='btn-quick-add' onClick={handleQuickAdd}><span>Add Task</span></button>
                 </div>
             </div>
 
@@ -219,7 +219,7 @@ const TaskManager = ({ token }) => {
                     </div>
                 </div>
                 <div className='form-actions-row'>
-                    <button className='btn-add' onClick={addTask}>Add task</button>
+                    <button className='btn-add' onClick={addTask}><span>Add task</span></button>
                 </div>
             </div>
 

@@ -52,4 +52,9 @@ public class UsersController {
 	public Object listuser() {
 		return US.listUsers();
 	}
+
+	@PostMapping("/resetpassword")
+	public Object resetpassword(@RequestBody Map<String, Object> data) {
+		return US.resetPassword(data);
+	}
 }

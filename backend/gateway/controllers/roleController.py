@@ -35,3 +35,9 @@ async def map_role(data: Dict[Any, Any]):
     async with httpx.AsyncClient() as client:
         response = await client.post(SPRING_URL + "role/map", json=data)
     return response.json()
+
+@router.get("/role/stats")
+async def get_stats():
+    async with httpx.AsyncClient() as client:
+        response = await client.get(SPRING_URL + "role/stats")
+    return response.json()

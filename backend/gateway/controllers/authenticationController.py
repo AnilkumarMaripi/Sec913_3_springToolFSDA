@@ -33,3 +33,22 @@ async def uinfo(Token: str = Header(...)):
             headers = {"Token": Token}
         )
     return response.json()
+
+
+@router.get("/listuser")
+async def listuser(Token: str = Header(...)):
+    async with httpx.AsyncClient() as client:
+        response = await client.get(
+            SPRING_URL + "authservice/listuser",
+            headers = {"Token": Token}
+        )
+    return response.json()
+
+@router.post("/resetpassword")
+async def resetpassword(data: dict):
+    async with httpx.AsyncClient() as client:
+        response = await client.post(
+            SPRING_URL + "authservice/resetpassword",
+            json=data
+        )
+    return response.json()

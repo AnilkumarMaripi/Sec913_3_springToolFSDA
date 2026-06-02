@@ -1,0 +1,104 @@
+.dashboard-container {
+    padding: 2rem 0;
+    font-family: var(--font-display);
+    color: var(--charcoal);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.dash-header {
+    margin-bottom: 3rem;
+}
+
+.dash-greeting {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+    color: var(--charcoal);
+}
+
+.dash-subtitle {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+}
+
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.dash-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.dash-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dash-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.dash-card:hover::before {
+    transform: scaleY(1);
+}
+
+.dash-card-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    z-index: 1;
+}
+
+.dash-card-value {
+    font-family: var(--font-serif);
+    font-size: 56px;
+    color: var(--accent);
+    line-height: 1;
+    z-index: 1;
+}
+
+.dash-recent-activity {
+    margin-top: 4rem;
+    padding: 4rem 2rem;
+    border: 1px solid var(--line);
+    background: var(--ivory);
+    text-align: center;
+    position: relative;
+}
+
+.dash-recent-activity span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

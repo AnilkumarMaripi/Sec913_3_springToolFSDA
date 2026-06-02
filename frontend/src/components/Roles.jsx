@@ -103,7 +103,7 @@ const Roles = ({ token }) => {
                     </div>
                     <div className='card-body'>
                         <input type='text' value={newRole} onChange={(e) => setNewRole(e.target.value)} placeholder='Role name' />
-                        <button className='btn-add' onClick={addRole}>Add Role</button>
+                        <button className='btn-add' onClick={addRole}><span>Add Role</span></button>
                     </div>
                 </div>
                 <div className='creation-card'>
@@ -113,7 +113,7 @@ const Roles = ({ token }) => {
                     </div>
                     <div className='card-body'>
                         <input type='text' value={newMenu} onChange={(e) => setNewMenu(e.target.value)} placeholder='Menu name' />
-                        <button className='btn-add green' onClick={addMenu}>Add Menu</button>
+                        <button className='btn-add green' onClick={addMenu}><span>Add Menu</span></button>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@ const Roles = ({ token }) => {
                             </div>
                         ))}
                     </div>
-                    <button className='btn-save-map' onClick={mapRoleMenu}>Add</button>
+                    <button className='btn-save-map' onClick={mapRoleMenu}><span>Add</span></button>
                 </div>
             </div>
 
@@ -156,7 +156,7 @@ const Roles = ({ token }) => {
                         <span className='subtitle'>ADMIN</span>
                         <h2 className='section-title'>Users</h2>
                     </div>
-                    <button className='btn-refresh' onClick={loadData}>Refresh</button>
+                    <button className='btn-refresh' onClick={loadData}><span>Refresh</span></button>
                 </div>
                 
                 <div className='table-container'>

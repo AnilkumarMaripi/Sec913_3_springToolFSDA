@@ -94,6 +94,9 @@ public class UsersService {
 			
 	        response.put("code", 200);
 	        response.put("fullname", U.getFullname());
+	        response.put("email", U.getEmail());
+	        response.put("phone", U.getPhone());
+	        response.put("roleId", U.getRole());
 	        response.put("menulist", menuList);
 		}catch(Exception e)
 		{
@@ -108,6 +111,38 @@ public class UsersService {
 		try {
 			response.put("code", 200);
 			response.put("data", UR.listUsersWithRoles());
+		} catch (Exception e) {
+			response.put("code", 500);
+			response.put("message", e.getMessage());
+		}
+		return response;
+	}
+
+	public Object resetPassword(Map<String, Object> data) {
+		Map<String, Object> response = new HashMap<>();
+		try {
+			Object emailObj = data.get("email");
+			Object newpasswordObj = data.get("newpassword");
+
+			if (emailObj == null || newpasswordObj == null) {
+				response.put("code", 400);
+				response.put("message", "Missing email or new password");
+				return response;
+			}
+
+			String email = emailObj.toString();
+			String newpassword = newpasswordObj.toString();
+
+			Users U = (Users) UR.findByEmail(email);
+			if (U != null) {
+				U.setPassword(newpassword);
+				UR.save(U);
+				response.put("code", 200);
+				response.put("message", "Password has been successfully updated.");
+			} else {
+				response.put("code", 404);
+				response.put("message", "Email ID not found.");
+			}
 		} catch (Exception e) {
 			response.put("code", 500);
 			response.put("message", e.getMessage());
